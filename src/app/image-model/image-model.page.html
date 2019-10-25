@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Image Id : {{imageId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-img [src]="imageDetails?.largeImageURL" alt="Loading" (ionImgWillLoad)="loadImgStart()" (ionImgDidLoad)="loadImgStop()" ></ion-img>
+    <ion-list>
+        <ion-item>
+            <ion-label>
+              <h4>Downloads: {{imageDetails?.downloads}}</h4>
+              <h4>Favorites: {{imageDetails?.favorites}}</h4>
+              <h4>Image Size (H x W): {{imageDetails?.imageHeight}} x {{imageDetails?.imageWidth}}</h4>
+              <h4>Comments : {{imageDetails?.comments}} </h4>
+              <h4>Likes : {{imageDetails?.likes}} </h4>
+              <h4>Views : {{imageDetails?.views}} </h4>
+              <h4>Tags: {{imageDetails?.tags}}</h4>
+            </ion-label>
+        </ion-item>
+      </ion-list>
+</ion-content>

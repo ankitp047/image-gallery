@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Categories of Image
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item (click)="gotoDetails(item)" *ngFor="let item of category">
+      <ion-icon name="images" slot="start"></ion-icon>
+      {{item.charAt(0).toUpperCase() + item.slice(1)}}
+    </ion-item>
+  </ion-list>
+</ion-content>

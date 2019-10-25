@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{category.charAt(0).toUpperCase() + category.slice(1)}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-item (click)="displayImage(item)" *ngFor="let item of imageAry">
+          <ion-thumbnail slot="start">
+            <ion-img [src]="item.previewURL"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+              <h2>Image Id: {{item.id}}</h2>
+              <h4>Downloads: {{item.downloads}}</h4>
+              <h4>Favorites: {{item.favorites}}</h4>
+              <!-- <h4>Image Size (H x W): {{item.imageHeight}} x {{item.imageWidth}}</h4> -->
+          </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
